@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://daljkn25d5wcg"]
+
+[sub_resource type="Gradient" id="Gradient_2nrn6"]
+offsets = PackedFloat32Array(0, 0.255208, 0.390625, 0.53125, 1)
+colors = PackedColorArray(3.27289e-06, 0.548689, 0.687109, 1, 0.8301, 0.369013, 0, 0.955647, 0.96865, 0, 0.473261, 0.94902, 0.852407, 0.285781, 0.986081, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_r8go7"]
+colors = PackedColorArray(0.0313726, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wwqwh"]
+gradient = SubResource("Gradient_r8go7")
+fill = 1
+fill_from = Vector2(0.487805, 0.512195)
+fill_to = Vector2(0.847561, 0.118902)
+
+[node name="magic" type="Node2D"]
+z_index = 13
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-13, 0)
+amount = 2000
+lifetime = 0.2
+speed_scale = 0.34
+randomness = 0.87
+emission_shape = 1
+emission_sphere_radius = 86.0
+spread = 21.0
+gravity = Vector2(-3000, 0)
+angular_velocity_min = 515.0
+angular_velocity_max = 515.0
+linear_accel_max = 43.0
+scale_amount_min = 7.0
+scale_amount_max = 7.0
+color = Color(0.117647, 1, 1, 1)
+color_ramp = SubResource("Gradient_2nrn6")
+hue_variation_min = 0.19
+hue_variation_max = 0.19
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-5, 4)
+scale = Vector2(201.562, 168.75)
+energy = 2.54
+texture = SubResource("GradientTexture2D_wwqwh")
+texture_scale = 0.01
