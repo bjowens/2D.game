@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8ibap117ulwe"]
+
+[ext_resource type="Script" path="res://SCRIPTS/2m.gd" id="1_gh18k"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_gh18k")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 209.0
+offset_top = 98.0
+offset_right = 926.0
+offset_bottom = 188.0
+theme_override_font_sizes/font_size = 65
+text = "Wild Magic Adventures"
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 373.0
+offset_top = 314.0
+offset_right = 722.0
+offset_bottom = 385.0
+theme_override_font_sizes/font_size = 45
+text = "Start"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

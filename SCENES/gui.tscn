@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=3 uid="uid://bw25cydq0y3ah"]
+
+[ext_resource type="Texture2D" uid="uid://c25pvujtv18oy" path="res://assets/Coin_Gems/MonedaD.png" id="1_i4yc7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ceh2"]
+atlas = ExtResource("1_i4yc7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prv42"]
+atlas = ExtResource("1_i4yc7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wknlh"]
+atlas = ExtResource("1_i4yc7")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5dr5"]
+atlas = ExtResource("1_i4yc7")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rogc5"]
+atlas = ExtResource("1_i4yc7")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yoj7o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ceh2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prv42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wknlh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5dr5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rogc5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[node name="GUI" type="CanvasLayer"]
+
+[node name="CoinsValue" type="Label" parent="."]
+anchors_preset = -1
+anchor_bottom = 0.008
+offset_left = 813.0
+offset_top = 4.0
+offset_right = 1063.0
+offset_bottom = 81.816
+theme_override_font_sizes/font_size = 60
+text = "0"
+horizontal_alignment = 2
+
+[node name="ScoreValue" type="Label" parent="."]
+anchors_preset = -1
+anchor_bottom = 0.008
+offset_left = 860.0
+offset_top = 96.0
+offset_right = 1126.0
+offset_bottom = 173.816
+theme_override_font_sizes/font_size = 30
+text = "0"
+horizontal_alignment = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1109, 43)
+scale = Vector2(4, 4.264)
+sprite_frames = SubResource("SpriteFrames_yoj7o")
+autoplay = "default"
+frame_progress = 0.839139

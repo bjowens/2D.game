@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://dpwfoen3b6kky"]
+
+[ext_resource type="Texture2D" uid="uid://c25pvujtv18oy" path="res://assets/Coin_Gems/MonedaD.png" id="1_u5hvu"]
+[ext_resource type="Script" path="res://SCRIPTS/coin.gd" id="2_wo7gu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5e8ml"]
+atlas = ExtResource("1_u5hvu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72lbt"]
+atlas = ExtResource("1_u5hvu")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohnb6"]
+atlas = ExtResource("1_u5hvu")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4eug"]
+atlas = ExtResource("1_u5hvu")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mq55"]
+atlas = ExtResource("1_u5hvu")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i3gv0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5e8ml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72lbt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohnb6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4eug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mq55")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jogfh"]
+radius = 7.0
+
+[sub_resource type="Gradient" id="Gradient_0djrf"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_phg34"]
+gradient = SubResource("Gradient_0djrf")
+
+[node name="Coin" type="AnimatedSprite2D"]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_i3gv0")
+autoplay = "default"
+frame_progress = 0.365708
+script = ExtResource("2_wo7gu")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_jogfh")
+
+[node name="PointLight2D" type="PointLight2D" parent="Area2D"]
+position = Vector2(1.49012e-08, 0.25)
+scale = Vector2(0.441406, 0.355469)
+energy = 1.82
+texture = SubResource("GradientTexture2D_phg34")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

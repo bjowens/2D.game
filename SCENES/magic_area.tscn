@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3jgyedcrjhf5"]
+
+[ext_resource type="Script" path="res://SCRIPTS/magic_area.gd" id="1_6rmih"]
+[ext_resource type="PackedScene" uid="uid://daljkn25d5wcg" path="res://magic.tscn" id="2_l68cm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_milke"]
+radius = 17.0294
+
+[node name="MagicArea" type="Area2D"]
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("1_6rmih")
+
+[node name="magic" parent="." instance=ExtResource("2_l68cm")]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(4, 4)
+shape = SubResource("CircleShape2D_milke")
+debug_color = Color(0, 0.6, 0.701961, 0.12549)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
